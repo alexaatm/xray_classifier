@@ -1,0 +1,4 @@
+lr: 0.001
+epochs: 20
+batch_size: 48
+data_root: ../data/raw

@@ -1,0 +1,43 @@
+{
+    "os": "Windows-10-10.0.19041-SP0",
+    "python": "3.7.7",
+    "heartbeatAt": "2024-02-20T14:25:10.526051",
+    "startedAt": "2024-02-20T14:25:09.831165",
+    "docker": null,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "<python with no main file>",
+    "host": "DESKTOP-FJVASI5",
+    "username": "tmenova",
+    "executable": "c:\\Users\\Tmenova\\.pyenv\\pyenv-win\\versions\\3.7.7\\python.exe",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2592.0,
+        "min": 0.0,
+        "max": 2592.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2592.0,
+            "min": 0.0,
+            "max": 2592.0
+        }
+    ],
+    "disk": {
+        "total": 933.8447227478027,
+        "used": 896.165470123291
+    },
+    "gpu": "NVIDIA GeForce GTX 1650 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1650 Ti",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 15.767276763916016
+    }
+}
