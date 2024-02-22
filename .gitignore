@@ -89,5 +89,6 @@ target/
 .mypy_cache/
 
 # custom
-/notebooks/wandb
+/notebooks/wandb/
 /models/
+/wandb
