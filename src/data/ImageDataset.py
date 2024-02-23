@@ -2,6 +2,8 @@ from PIL import Image
 from torch.utils.data import Dataset
 import os
 
+# NOTE: could use ImageFolder dataset instead
+
 class ImageDataset(Dataset):
     """_summary_
 
