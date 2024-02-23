@@ -1,4 +1,4 @@
 name: eval_clean_data
 batch_size: 8
 data_root: data/processed/raw_corrected/Test
-eval: False
+eval: True
