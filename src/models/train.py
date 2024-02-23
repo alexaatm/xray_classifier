@@ -24,12 +24,24 @@ def make(cfg):
     # 1 - prepare data
     train_root = os.path.join(cfg.data_root, "Train")
 
-    transform = transforms.Compose(
-    [
-        transforms.ToTensor(),
-        transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-    ]
-    )
+    if not cfg.data_augm:
+        transform = transforms.Compose(
+        [
+            transforms.ToTensor(),
+            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+        ]
+        )
+    else:
+        transform = transforms.Compose(
+        [
+            transforms.ToTensor(),
+            transforms.RandomHorizontalFlip(p=0.5),
+            transforms.RandomVerticalFlip(p=0.5),
+            # transforms.RandomApply([transforms.CenterCrop(128)], p = 0.5),
+            transforms.RandomPerspective(distortion_scale = 0.2, p = 0.5),
+            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+        ]
+        )
 
     full_train_dataset = ImageClassificationDataset(train_root, transform=transform)
 
