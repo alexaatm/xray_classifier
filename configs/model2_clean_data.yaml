@@ -3,3 +3,4 @@ epochs: 10
 batch_size: 32
 data_root: data/processed/raw_corrected
 name: model2_clean_data
+data_augm: False

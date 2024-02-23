@@ -3,3 +3,4 @@ epochs: 10
 batch_size: 32
 data_root: data/raw
 name: model2
+data_augm: False
