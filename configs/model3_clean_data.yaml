@@ -1,0 +1,5 @@
+lr: 0.001
+epochs: 10
+batch_size: 8
+data_root: data/processed/raw_corrected
+name: model3_clean_data

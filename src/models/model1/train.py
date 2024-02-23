@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from src.data.ImageClassificationDataset import ImageClassificationDataset
-from src.models.model1.model import SimpleCNN
+from src.models.model1.model import SimpleCNN, XrayCNN, XrayCNN_mini
 
 def make(cfg):
     # 1 - prepare data
@@ -48,7 +48,14 @@ def make(cfg):
     val_loader = torch.utils.data.DataLoader(val_dataset, batch_size = cfg.batch_size, shuffle = True)
 
     # 2 - prepare model
-    model = SimpleCNN()
+    if "model1" in cfg.name:
+        model = SimpleCNN()
+    elif "model2" in cfg.name:
+        model = XrayCNN()
+    elif "model3" in cfg.name:
+        model = XrayCNN_mini()
+    else:
+        NotImplementedError()
 
 
     # 3 - prepare loss and optimizer
@@ -77,11 +84,15 @@ def train(model, train_loader, val_loader, criterion, optimizer, cfg):
 
     print("cfg.epochs=", cfg.epochs)
 
+    # device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    # model = model.to(device)
+
     for epoch in tqdm(range(cfg.epochs)):
         # print(f"Epoch {epoch} / {cfg.epochs}")
         model.train()
         for i, data in enumerate(train_loader):
             images, labels = data
+            # images, labels = images.to(device), labels.to(device)
 
             # zero the gradient
             optimizer.zero_grad()
@@ -96,6 +107,7 @@ def train(model, train_loader, val_loader, criterion, optimizer, cfg):
             wandb.log({"epoch": epoch, "train_loss": loss.item()}) #, "train_step": i
         
         # validate
+        # model = model.cpu()
         model.eval()
         val_loss = validate(model, val_loader, criterion)
         
