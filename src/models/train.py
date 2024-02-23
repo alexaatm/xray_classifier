@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 from src.data.ImageClassificationDataset import ImageClassificationDataset
-from src.models.model1.model import SimpleCNN, XrayCNN, XrayCNN_mini
+from src.models.model import SimpleCNN, XrayCNN, XrayCNN_mini
 
 def make(cfg):
     # 1 - prepare data

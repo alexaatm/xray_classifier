@@ -6,7 +6,7 @@ import numpy as np
 import sys
 from src.data.ImageClassificationDataset import ImageClassificationDataset
 from src.data.ImageDataset import ImageDataset
-from src.models.model1.model import SimpleCNN
+from src.models.model import SimpleCNN
 from torchvision.transforms import transforms
 import os
 import matplotlib.pyplot as plt
