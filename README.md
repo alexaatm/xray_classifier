@@ -15,8 +15,6 @@ xray_classifier/
 │   └── model1.yaml              
 │
 ├── data                         
-│   ├── external                 # Data from third party sources.
-│   ├── interim                  # Intermediate data that has been transformed.
 │   ├── processed                # The final, canonical data sets for modeling.
 │   └── raw                      # The original, immutable data dump.
 │
@@ -36,25 +34,13 @@ xray_classifier/
     ├── __init__.py              # Makes src a Python module.
     │
     ├── data                     # Data engineering scripts.
-    │   ├── build_features.py    
-    │   ├── cleaning.py          
-    │   ├── ingestion.py         
-    │   ├── labeling.py          
-    │   ├── splitting.py         
-    │   └── validation.py        
+    │   ├── ImageClassififcationDataset.py    
+    │   ├── preprocessing.py                 
     │
-    ├── models                   # ML model engineering (a folder for each model).
-    │   └── model1      
-    │       ├── dataloader.py    
-    │       ├── hyperparameters_tuning.py 
-    │       ├── model.py         
-    │       ├── predict.py       
-    │       ├── preprocessing.py 
-    │       └── train.py         
-    │
-    └── visualization        # Scripts to create exploratory and results oriented visualizations.
-        ├── evaluation.py        
-        └── exploration.py       
+    ├── models                   # ML model engineering.   
+    │   ├── model.py         
+    │   ├── predict.py       
+    │   └── train.py               
 ```
 
 
