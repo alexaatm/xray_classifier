@@ -19,6 +19,7 @@ import seaborn as sns
 
 from src.data.ImageClassificationDataset import ImageClassificationDataset
 from src.models.model import SimpleCNN, XrayCNN, XrayCNN_mini
+from src.data.preprocessing import EqualizeClahe
 
 def make(cfg):
     # 1 - prepare data
@@ -28,6 +29,7 @@ def make(cfg):
         transform = transforms.Compose(
         [
             transforms.ToTensor(),
+            # EqualizeClahe(), #TODO add config to choose if to preprocess or not
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ]
         )

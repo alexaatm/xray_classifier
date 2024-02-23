@@ -6,12 +6,14 @@ import numpy as np
 import sys
 from src.data.ImageClassificationDataset import ImageClassificationDataset
 from src.data.ImageDataset import ImageDataset
-from src.models.model import SimpleCNN
+from src.models.model import SimpleCNN, XrayCNN, XrayCNN_mini
 from torchvision.transforms import transforms
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import yaml
+from src.data.preprocessing import EqualizeClahe
+
 
 def make(cfg, model_path):
     # 1 - prepare data
@@ -20,6 +22,7 @@ def make(cfg, model_path):
     transform = transforms.Compose(
     [
         transforms.ToTensor(),
+        # EqualizeClahe(), #TODO add config to choose if to preprocess or not
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ]
     )
@@ -33,7 +36,14 @@ def make(cfg, model_path):
     test_loader = torch.utils.data.DataLoader(test_dataset, batch_size = cfg.batch_size, shuffle = False, drop_last = False)
 
     # 2 - prepare model
-    model = SimpleCNN()
+    if "model1" in model_path:
+        model = SimpleCNN()
+    elif "model2" in model_path:
+        model = XrayCNN()
+    elif "model3" in model_path:
+        model = XrayCNN_mini()
+    else:
+        NotImplementedError()
     model.load_state_dict(torch.load(model_path))
 
     return model, test_loader
