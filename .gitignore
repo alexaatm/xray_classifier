@@ -91,4 +91,4 @@ target/
 # custom
 /notebooks/wandb/
 /models/
-/wandb
+/wandb/
