@@ -1,0 +1,6 @@
+lr: 0.001
+epochs: 10
+batch_size: 8
+data_root: data/processed/raw_corrected
+name: model1_clean_data_preproc
+data_augm: False

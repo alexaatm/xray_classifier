@@ -29,6 +29,7 @@ def make(cfg):
         transform = transforms.Compose(
         [
             transforms.ToTensor(),
+            # transforms.GaussianBlur(5), #TODO add config to choose if to preprocess or not
             # EqualizeClahe(), #TODO add config to choose if to preprocess or not
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ]
